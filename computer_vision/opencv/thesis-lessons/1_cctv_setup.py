@@ -3,7 +3,7 @@ import cv2 as cv
 # camera details
 username = "SpotItCamera"
 password = "spotittapo232"
-camera_ip = "192.168.1.7"
+camera_ip = "192.168.18.11"
 
 # Port 554 = universal, internationally standardized network port for RTSP (Real-Time Streaming Protocol).
 # when there's a port 554 in python opencv code, it pulls the raw video data stream
