@@ -23,6 +23,14 @@ from sklearn.model_selection import train_test_split
 #   = a single column with the same number of observations as the feature data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=21, stratify=y)
 
+# X_train (Practice Questions): The math problems on the study guide.
+
+# y_train (Practice Answers): The step-by-step solutions at the back of the study guide. The student uses these to learn how to solve the problems.
+
+# X_test (Exam Questions): The brand-new questions on the actual exam.
+
+# y_test (Exam Answer Key): The correct answers to the exam. You keep this hidden in your desk. The student hands in their guesses (y_pred), and you compare them to y_test to calculate their final grade.
+
 knn = KNeighborsClassifier(n_neighbors=6)
 knn.fit(X_train, y_train)
 print(knn.score(X_test, y_test))

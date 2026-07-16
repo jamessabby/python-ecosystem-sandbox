@@ -6,13 +6,15 @@
 
 ```python
 
-X = diabetes_df.drop("glucose", axis=1).values()
-y = diabetes_df["glucose"].values()
+# .values: Converts that single pandas column into a clean, raw NumPy array of numbers (like [148, 85, 183, ...]).
+
+X = diabetes_df.drop("glucose", axis=1).values    # find the column glucose and remove it so we only input the features not the target (gluocose)
+
+y = diabetes_df["glucose"].values # Grabs only the column named "glucose" from your DataFrame. This is target variable (the "correct answers" we want the model to learn to predict)
+
 print(type(X), type(y)) # double checks if theyre numpy array already
 
 ```
-
-Here is the raw text formatted as a single copy-pasteable block. You can hit the copy button on this block and paste it directly at the end of your `intro_to_regression.md` file in VS Code.
 
 ```text
 ### Making predictions from a single feature

@@ -33,22 +33,15 @@ y = ax + b
 
 ## Linear Regression in Higher Dimension
 
-y = a1x1 + a2x2 + b
+* **Single Regression:** Predicts a target using only one feature (e.g., predicting glucose using only BMI).
+  
+  $$y = ax + b
 
-where:
-- x1, x2 = features
-- y = target 
+* **Multiple Regression:** Predicts a target using multiple features at the same time (e.g., predicting glucose using BMI, age, and insulin levels). 
 
-- To fit a linear regression:
-    - need to specify 3 variables: a1, a2, b
+  $$y = a_1x_1 + a_2x_2 + ... + a_nx_n + b
 
-- In higher dimension:
-    - known as multiple regression
-    - must specify coefficients for each feature and the variable b
-    - y = a1x1 + a2x2 + a3x3 + ... anxn + ... b
-
-- scikit learn works exactly the same way:
-    - pass two arrays: features and target
+* **How it works in Scikit-Learn:** The code works exactly the same way. You simply pass an array containing multiple feature columns instead of just one.
 
 ### Linear Regression using all features
 
@@ -65,9 +58,19 @@ y_pred = reg_all.predict(X_test)
 ```
 
 ## R-squared
-- quantifies the variance in target values explained by the features
+- a score from 0 to 1 that tells you how much of your target's behavior your features can explain
+- measures how well your features explain the variation in your target variable.
      - values can range from 0 to 1
         - 1 = feature completely explained the target's variance
+        
+- If you are predicting Sales using Ad Spend, and your R^2 is 0.80:
+    - 80% of the ups and downs in your sales numbers are directly explained by your advertising budget.
+    - The remaining 20% is random noise or other factors your model doesn't know about (like the weather, holidays, or competitor actions).
+
+* **The Scale:** It ranges from 0 to 1.
+  * **High $R^2$ (Close to 1):** The data points hug the line tightly. Your features do a great job explaining the target.
+  * **Low $R^2$ (Close to 0):** The data points are scattered randomly. Your features do not explain the target well.
+* **Interpretation:** If your model gets an $R^2$ score of `0.356`, it means your features only explain about 35.6% of the variance in blood glucose levels. The other 64.4% is due to other factors not in your model.
 
 ```python
 
@@ -77,7 +80,16 @@ reg_all.score(X_test, y_test)
 
 ### Mean squared error (MSE) and root mean squared error
 
-- MSE is measured in target units, squared
+
+* **Mean Squared Error (MSE):** The average of the squared residuals. Because the errors are squared, the unit of measurement is also squared (e.g., blood glucose squared), which makes it hard to interpret in the real world.
+
+  $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
+
+* **Root Mean Squared Error (RMSE):** The square root of the MSE. Taking the square root converts the error back into the target variable's original unit of measurement.
+
+  $$RMSE = \sqrt{MSE}$$
+
+* **Interpretation:** If your model's RMSE is `24.02`, it means that on average, your model's predictions are off by approximately 24 milligrams per deciliter (mg/dL) of blood glucose.
 
 ```python
 

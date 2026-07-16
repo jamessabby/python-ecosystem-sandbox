@@ -22,7 +22,7 @@ print(X.shape, y.shape)
 
 knn = KneighborsClassifier(n_neighbors=15)
 
-knn.fit(X, y)
+knn.fit(X, y)   # 
 
 predictions = knn.predict(X_new)
 print("Predictions: {}".format(y_pred)) 

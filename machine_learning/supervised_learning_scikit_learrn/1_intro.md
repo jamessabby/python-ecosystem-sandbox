@@ -39,6 +39,12 @@
 ```python
 from sklearn.module import Model
 model = Model()
-model.fit(X, y)     # X = array of features, y = array of values
+
+# X = array of features, y = array of values
+# the moment you actually train your model.
+# runs its underlying mathematical algorithm to find the relationships, weights, or patterns between those features and the targets.
+model.fit(X, y)  
+
+# once the fit is done, the model is now trained and ready to predict the outcomes of test values based from the training data
 predictions = model.predict(X_new)
 ```
