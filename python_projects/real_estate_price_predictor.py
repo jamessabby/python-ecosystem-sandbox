@@ -4,6 +4,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split 
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression, Ridge
+import joblib
 
 df = pd.read_csv("datasets/usa_housing_kaggle.csv")
 
@@ -41,6 +42,18 @@ y = df["Price"].values  # isolated 'Price' as it is the target value
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=21)   # hide 30% of the houses so we can use them later for testing
 
+
+# 2 steps: 
+#   1) Centering = calculates the average of columns and subtracts it to every single value
+        # The Result: The new average of your column becomes exactly 0.
+        #     What it means for your data:
+        #     - Any house that was perfectly average now has a value of 0.
+        #     - Any house that was below average now has a negative value.
+        #     - Any house that was above average now has a positive value.
+#   2) Scaling = divides those new values by the column's standard deviation (which is just a measure of how spread out the numbers typically are)
+# Now each feature has:
+# - A mean of 0
+# - A standard deviation of 1
 scaler = StandardScaler()
 
 X_train_scaled = scaler.fit_transform(X_train)  # looks at the training data, finds the average of each features and memorize those values
@@ -65,4 +78,4 @@ ridge_scores.append(ridge.score(X_test_scaled, y_test))
 print(f"Linear Regression score: {reg_scores}")
 print(f"Ridge score: {ridge_scores}")
 
-
+joblib.dump(reg_all, "real_estate_model.pkl")
