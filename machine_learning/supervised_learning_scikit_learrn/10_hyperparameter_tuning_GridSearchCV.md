@@ -16,7 +16,7 @@
 * *Example:* If you check 4 values for `n_neighbors` and 2 options for distance `metric` (Euclidean vs. Manhattan), Grid Search tests all 8 combinations.
 
 
-* **How it runs**: It evaluates every combination by running $k$-fold cross-validation on the training set, calculating a mean score for each setting to find the optimal choice.
+* **How it runs**: It evaluates every combination by running k-fold cross-validation on the training set, calculating a mean score for each setting to find the optimal choice.
 
 ```python
 import numpy as np

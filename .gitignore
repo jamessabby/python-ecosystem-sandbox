@@ -1,0 +1,2 @@
+# Ignore large datasets
+python_projects/datasets/github_bugs.csv
