@@ -76,4 +76,4 @@ print(np.sqrt(-linreg_cv))
 
 * **The Rule:** Scikit-learn’s `cross_val_score` relies on a design principle where **higher return values must always represent a better model**.
 * **The Workaround:** Because a *lower* Mean Squared Error (MSE) is structurally better, scikit-learn multiplies the computed errors by $-1$ (`neg_mean_squared_error`) to make them compliant with the "higher is better" rule.
-* **The Fix:** To convert these numbers back into standard, positive Root Mean Squared Error (RMSE) values for analysis, you must add a negative sign inside the square root (`np.sqrt(-linreg_cv)`).   
+* **The Fix:** To convert these numbers back into standard, positive Root Mean Squared Error (RMSE) values for analysis, you must add a negative sign inside the square root (`np.sqrt(-linreg_cv)`).
