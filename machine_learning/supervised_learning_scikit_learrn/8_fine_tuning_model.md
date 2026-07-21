@@ -34,8 +34,6 @@
 $$\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}$$
 
 
-
-
 * **Recall (Sensitivity)**: Out of all the actual positive cases in the dataset, how many did the model manage to find and catch.
 * High recall = lower false negative rate (fewer missed cases).
 * Formula:
@@ -43,16 +41,11 @@ $$\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{
 $$\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}$$
 
 
-
-
 * **F1-Score**: The harmonic mean of precision and recall.
 * It gives equal weight to both metrics, making it a great single-number metric for evaluating models trained on imbalanced datasets.
 * Formula:
 
 $$F_1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
-
-
-
 
 
 ```python
@@ -74,7 +67,6 @@ y_pred = knn.predict(X_test)
 print(confusion_matrix(y_test, y_pred))
 
 # classification_report() outputs a text report showing:
-# precision, recall, f1-score, and support for each individual class
 print(classification_report(y_test, y_pred))
 
 ```

@@ -5,7 +5,7 @@
 Despite the word "regression," **Logistic Regression is used for Classification** (predicting labels, not continuous numbers).
 
 * **How it works:** Instead of predicting a label directly, it calculates the **probability ($p$)** that a data point belongs to a certain class.
-* **The Threshold:** By default, it uses $0.5$ as the cutoff point:
+* **The Threshold:** By default, it uses 0.5 as the cutoff point:
 * If $p \ge 0.5 \rightarrow$ Class 1 (e.g., Has Diabetes)
 * If $p < 0.5 \rightarrow$ Class 0 (e.g., Healthy)
 
